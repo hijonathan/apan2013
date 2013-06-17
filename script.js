@@ -7,10 +7,17 @@ var width = document.width,
 var color = d3.scale.category20();
 
 var force = d3.layout.force()
-    .linkDistance(200)
+    .linkDistance(function(d) {
+      if (d.type && d.type === 'property') {
+        return 10;
+      }
+      else {
+        return 100;
+      }
+    })
     .charge(-10 / k)
     .gravity(100 * k)
-    .size([width, height]);
+    .size([width, height])
 
 var svg = d3.select("body").append("svg:svg")
     .attr("width", width)
@@ -49,7 +56,6 @@ d3.json("categories.json", function(error, graph) {
     });
   });
 
-  debugger
   force.nodes(nodes);
 
   // Dynamically build links based on shared attributes
@@ -194,6 +200,7 @@ d3.json("categories.json", function(error, graph) {
     matchCirlce.attr("transform", translateBetween);
 
   });
+
 });
 
 function translateBetween(d) {
