@@ -2,6 +2,7 @@
     "nodes": [
         {
             "id": 0,
+            "type": "person",
             "name": "Andy Ingal",
             "Name": "Andy Ingal",
             "Categories": "Hair",
@@ -21,6 +22,7 @@
         },
         {
             "id": 1,
+            "type": "person",
             "name": "Sandeep Pahuja",
             "Name": "Sandeep Pahuja",
             "Categories": "Household Needs",
@@ -40,6 +42,7 @@
         },
         {
             "id": 2,
+            "type": "person",
             "name": "Elaine Bacio",
             "Name": "Elaine Bacio",
             "Categories": "Oral Professional",
@@ -59,6 +62,7 @@
         },
         {
             "id": 3,
+            "type": "person",
             "name": "Marlene Ching",
             "Name": "Marlene Ching",
             "Categories": "Oral Professional",
@@ -78,6 +82,7 @@
         },
         {
             "id": 4,
+            "type": "person",
             "name": "Anju Shivaram",
             "Name": "Anju Shivaram",
             "Categories": "Health and Beauty",
@@ -97,6 +102,7 @@
         },
         {
             "id": 5,
+            "type": "person",
             "name": "Suke Pathak",
             "Name": "Suke Pathak",
             "Categories": "Store Development MDO",
@@ -116,6 +122,7 @@
         },
         {
             "id": 6,
+            "type": "person",
             "name": "Dina Fifadra",
             "Name": "Dina Fifadra",
             "Categories": "Shave & APDO",
@@ -135,6 +142,7 @@
         },
         {
             "id": 7,
+            "type": "person",
             "name": "Ruthie Lee",
             "Name": "Ruthie Lee",
             "Categories": "Salon Professional",
@@ -154,6 +162,7 @@
         },
         {
             "id": 8,
+            "type": "person",
             "name": "Stephanie Yang",
             "Name": "Stephanie Yang",
             "Categories": "Hair",
@@ -173,6 +182,7 @@
         },
         {
             "id": 9,
+            "type": "person",
             "name": "LeeAnn Manley",
             "Name": "LeeAnn Manley",
             "Categories": "Health and Beauty",
@@ -192,6 +202,7 @@
         },
         {
             "id": 10,
+            "type": "person",
             "name": "Tanvika Gupta",
             "Name": "Tanvika Gupta",
             "Categories": "Intern",
@@ -211,6 +222,7 @@
         },
         {
             "id": 11,
+            "type": "person",
             "name": "Connie Lu",
             "Name": "Connie Lu",
             "Categories": "Fabric",
@@ -227,6 +239,1014 @@
             "Model": "Toyota",
             "Make": "Corolla",
             "Likes Food": true
+        },
+        {
+            "source": 0,
+            "type": "property",
+            "name": "Categories",
+            "value": "Hair"
+        },
+        {
+            "source": 0,
+            "type": "property",
+            "name": "Location",
+            "value": "Chicago"
+        },
+        {
+            "source": 0,
+            "type": "property",
+            "name": "School",
+            "value": "The Ohio State University"
+        },
+        {
+            "source": 0,
+            "type": "property",
+            "name": "Hometown City",
+            "value": "Rocky River"
+        },
+        {
+            "source": 0,
+            "type": "property",
+            "name": "Hometown State",
+            "value": "Ohio"
+        },
+        {
+            "source": 0,
+            "type": "property",
+            "name": "Family",
+            "value": "Married & 2 kids"
+        },
+        {
+            "source": 0,
+            "type": "property",
+            "name": "Hobby 1",
+            "value": "Golf"
+        },
+        {
+            "source": 0,
+            "type": "property",
+            "name": "Hobby 2",
+            "value": "Coaching"
+        },
+        {
+            "source":  0,
+            "type": "property",
+            "name": "Hobby 3",
+            "value": "Cleveland Sports"
+        },
+        {
+            "source":  0,
+            "type": "property",
+            "name": "Year",
+            "value": "1990"
+        },
+        {
+            "source":  0,
+            "type": "property",
+            "name": "Color",
+            "value": null
+        },
+        {
+            "source": 0,
+            "type": "property",
+            "name": "Model",
+            "value": "Honda"
+        },
+        {
+            "source": 0,
+            "type": "property",
+            "name": "Make",
+            "value": "Accord"
+        },
+        {
+            "source": 0,
+            "type": "property",
+            "name": "Likes Food",
+            "value": true
+        },
+        {
+            "source": 1,
+            "type": "property",
+            "name": "Categories",
+            "value": "Household Needs"
+        },
+        {
+            "source": 1,
+            "type": "property",
+            "name": "Location",
+            "value": "Chicago"
+        },
+        {
+            "source": 1,
+            "type": "property",
+            "name": "School",
+            "value": "New York University"
+        },
+        {
+            "source": 1,
+            "type": "property",
+            "name": "Hometown City",
+            "value": "Long Island"
+        },
+        {
+            "source": 1,
+            "type": "property",
+            "name": "Hometown State",
+            "value": "New York"
+        },
+        {
+            "source": 1,
+            "type": "property",
+            "name": "Family",
+            "value": "1 Sister & 2 Brothers"
+        },
+        {
+            "source": 1,
+            "type": "property",
+            "name": "Hobby 1",
+            "value": "Basketball"
+        },
+        {
+            "source": 1,
+            "type": "property",
+            "name": "Hobby 2",
+            "value": "Photography"
+        },
+        {
+            "source":  1,
+            "type": "property",
+            "name": "Hobby 3",
+            "value": "Design"
+        },
+        {
+            "source":  1,
+            "type": "property",
+            "name": "Year",
+            "value": "2002"
+        },
+        {
+            "source":  1,
+            "type": "property",
+            "name": "Color",
+            "value": "Black"
+        },
+        {
+            "source": 1,
+            "type": "property",
+            "name": "Model",
+            "value": "Mercury"
+        },
+        {
+            "source": 1,
+            "type": "property",
+            "name": "Make",
+            "value": "Sable"
+        },
+        {
+            "source": 1,
+            "type": "property",
+            "name": "Likes Food",
+            "value": true
+        },
+        {
+            "source": 2,
+            "type": "property",
+            "name": "Categories",
+            "value": "Oral Professional"
+        },
+        {
+            "source": 2,
+            "type": "property",
+            "name": "Location",
+            "value": "San Francisco"
+        },
+        {
+            "source": 2,
+            "type": "property",
+            "name": "School",
+            "value": "Cornell University"
+        },
+        {
+            "source": 2,
+            "type": "property",
+            "name": "Hometown City",
+            "value": "San Mateo"
+        },
+        {
+            "source": 2,
+            "type": "property",
+            "name": "Hometown State",
+            "value": "California"
+        },
+        {
+            "source": 2,
+            "type": "property",
+            "name": "Family",
+            "value": "Married & 2 kids"
+        },
+        {
+            "source": 2,
+            "type": "property",
+            "name": "Hobby 1",
+            "value": "Geocaching"
+        },
+        {
+            "source": 2,
+            "type": "property",
+            "name": "Hobby 2",
+            "value": "Cooking"
+        },
+        {
+            "source":  2,
+            "type": "property",
+            "name": "Hobby 3",
+            "value": "Dining"
+        },
+        {
+            "source":  2,
+            "type": "property",
+            "name": "Year",
+            "value": "1992"
+        },
+        {
+            "source":  2,
+            "type": "property",
+            "name": "Color",
+            "value": "Blue"
+        },
+        {
+            "source": 2,
+            "type": "property",
+            "name": "Model",
+            "value": "Honda"
+        },
+        {
+            "source": 2,
+            "type": "property",
+            "name": "Make",
+            "value": "Accord"
+        },
+        {
+            "source": 2,
+            "type": "property",
+            "name": "Likes Food",
+            "value": true
+        },
+        {
+            "source": 3,
+            "type": "property",
+            "name": "Categories",
+            "value": "Oral Professional"
+        },
+        {
+            "source": 3,
+            "type": "property",
+            "name": "Location",
+            "value": "San Francisco"
+        },
+        {
+            "source": 3,
+            "type": "property",
+            "name": "School",
+            "value": "Harvard University"
+        },
+        {
+            "source": 3,
+            "type": "property",
+            "name": "Hometown City",
+            "value": "Honolulu"
+        },
+        {
+            "source": 3,
+            "type": "property",
+            "name": "Hometown State",
+            "value": "Hawaii"
+        },
+        {
+            "source": 3,
+            "type": "property",
+            "name": "Family",
+            "value": "Maried & 2 kids"
+        },
+        {
+            "source": 3,
+            "type": "property",
+            "name": "Hobby 1",
+            "value": "Swimming"
+        },
+        {
+            "source": 3,
+            "type": "property",
+            "name": "Hobby 2",
+            "value": "Photography"
+        },
+        {
+            "source":  3,
+            "type": "property",
+            "name": "Hobby 3",
+            "value": "Cooking"
+        },
+        {
+            "source":  3,
+            "type": "property",
+            "name": "Year",
+            "value": "199X"
+        },
+        {
+            "source":  3,
+            "type": "property",
+            "name": "Color",
+            "value": "Silver"
+        },
+        {
+            "source": 3,
+            "type": "property",
+            "name": "Model",
+            "value": "Volvo"
+        },
+        {
+            "source": 3,
+            "type": "property",
+            "name": "Make",
+            "value": ""
+        },
+        {
+            "source": 3,
+            "type": "property",
+            "name": "Likes Food",
+            "value": true
+        },
+        {
+            "source": 4,
+            "type": "property",
+            "name": "Categories",
+            "value": "Health and Beauty"
+        },
+        {
+            "source": 4,
+            "type": "property",
+            "name": "Location",
+            "value": "Chicago"
+        },
+        {
+            "source": 4,
+            "type": "property",
+            "name": "School",
+            "value": "Northwestern University"
+        },
+        {
+            "source": 4,
+            "type": "property",
+            "name": "Hometown City",
+            "value": "Hinsdale"
+        },
+        {
+            "source": 4,
+            "type": "property",
+            "name": "Hometown State",
+            "value": "Illinois"
+        },
+        {
+            "source": 4,
+            "type": "property",
+            "name": "Family",
+            "value": "Maried & 2 kids"
+        },
+        {
+            "source": 4,
+            "type": "property",
+            "name": "Hobby 1",
+            "value": "Cooking"
+        },
+        {
+            "source": 4,
+            "type": "property",
+            "name": "Hobby 2",
+            "value": "Reading"
+        },
+        {
+            "source":  4,
+            "type": "property",
+            "name": "Hobby 3",
+            "value": "Running"
+        },
+        {
+            "source":  4,
+            "type": "property",
+            "name": "Year",
+            "value": "1992"
+        },
+        {
+            "source":  4,
+            "type": "property",
+            "name": "Color",
+            "value": null
+        },
+        {
+            "source": 4,
+            "type": "property",
+            "name": "Model",
+            "value": "Honda"
+        },
+        {
+            "source": 4,
+            "type": "property",
+            "name": "Make",
+            "value": "Prelude SI"
+        },
+        {
+            "source": 4,
+            "type": "property",
+            "name": "Likes Food",
+            "value": true
+        },
+        {
+            "source": 5,
+            "type": "property",
+            "name": "Categories",
+            "value": "Store Development MDO"
+        },
+        {
+            "source": 5,
+            "type": "property",
+            "name": "Location",
+            "value": "Cincinnati"
+        },
+        {
+            "source": 5,
+            "type": "property",
+            "name": "School",
+            "value": "University of Florida"
+        },
+        {
+            "source": 5,
+            "type": "property",
+            "name": "Hometown City",
+            "value": "Sarasota"
+        },
+        {
+            "source": 5,
+            "type": "property",
+            "name": "Hometown State",
+            "value": "Florida"
+        },
+        {
+            "source": 5,
+            "type": "property",
+            "name": "Family",
+            "value": "Married"
+        },
+        {
+            "source": 5,
+            "type": "property",
+            "name": "Hobby 1",
+            "value": "Guitar"
+        },
+        {
+            "source": 5,
+            "type": "property",
+            "name": "Hobby 2",
+            "value": "College Football"
+        },
+        {
+            "source":  5,
+            "type": "property",
+            "name": "Hobby 3",
+            "value": null
+        },
+        {
+            "source":  5,
+            "type": "property",
+            "name": "Year",
+            "value": "1994"
+        },
+        {
+            "source":  5,
+            "type": "property",
+            "name": "Color",
+            "value": "Blue"
+        },
+        {
+            "source": 5,
+            "type": "property",
+            "name": "Model",
+            "value": "Jeep"
+        },
+        {
+            "source": 5,
+            "type": "property",
+            "name": "Make",
+            "value": "Cherokee"
+        },
+        {
+            "source": 5,
+            "type": "property",
+            "name": "Likes Food",
+            "value": false
+        },
+        {
+            "source": 6,
+            "type": "property",
+            "name": "Categories",
+            "value": "Shave & APDO"
+        },
+        {
+            "source": 6,
+            "type": "property",
+            "name": "Location",
+            "value": "Seattle"
+        },
+        {
+            "source": 6,
+            "type": "property",
+            "name": "School",
+            "value": "University of North Carolina - Chapel Hill"
+        },
+        {
+            "source": 6,
+            "type": "property",
+            "name": "Hometown City",
+            "value": ""
+        },
+        {
+            "source": 6,
+            "type": "property",
+            "name": "Hometown State",
+            "value": "Florida"
+        },
+        {
+            "source": 6,
+            "type": "property",
+            "name": "Family",
+            "value": "Maried & 1 kid"
+        },
+        {
+            "source": 6,
+            "type": "property",
+            "name": "Hobby 1",
+            "value": "Bollywood dance"
+        },
+        {
+            "source": 6,
+            "type": "property",
+            "name": "Hobby 2",
+            "value": "Reading"
+        },
+        {
+            "source":  6,
+            "type": "property",
+            "name": "Hobby 3",
+            "value": "Travel"
+        },
+        {
+            "source":  6,
+            "type": "property",
+            "name": "Year",
+            "value": "1990"
+        },
+        {
+            "source":  6,
+            "type": "property",
+            "name": "Color",
+            "value": "White"
+        },
+        {
+            "source": 6,
+            "type": "property",
+            "name": "Model",
+            "value": "Toyota"
+        },
+        {
+            "source": 6,
+            "type": "property",
+            "name": "Make",
+            "value": "Cressida"
+        },
+        {
+            "source": 6,
+            "type": "property",
+            "name": "Likes Food",
+            "value": true
+        },
+        {
+            "source": 7,
+            "type": "property",
+            "name": "Categories",
+            "value": "Salon Professional"
+        },
+        {
+            "source": 7,
+            "type": "property",
+            "name": "Location",
+            "value": "Philidelphia"
+        },
+        {
+            "source": 7,
+            "type": "property",
+            "name": "School",
+            "value": "The Ohio State University"
+        },
+        {
+            "source": 7,
+            "type": "property",
+            "name": "Hometown City",
+            "value": "Columbus"
+        },
+        {
+            "source": 7,
+            "type": "property",
+            "name": "Hometown State",
+            "value": "Ohio"
+        },
+        {
+            "source": 7,
+            "type": "property",
+            "name": "Family",
+            "value": "3 Sisters"
+        },
+        {
+            "source": 7,
+            "type": "property",
+            "name": "Hobby 1",
+            "value": "Music"
+        },
+        {
+            "source": 7,
+            "type": "property",
+            "name": "Hobby 2",
+            "value": "The Bachelor/Bachelorette"
+        },
+        {
+            "source":  7,
+            "type": "property",
+            "name": "Hobby 3",
+            "value": "Family & Friends"
+        },
+        {
+            "source":  7,
+            "type": "property",
+            "name": "Year",
+            "value": "1995"
+        },
+        {
+            "source":  7,
+            "type": "property",
+            "name": "Color",
+            "value": "Green"
+        },
+        {
+            "source": 7,
+            "type": "property",
+            "name": "Model",
+            "value": "Honda"
+        },
+        {
+            "source": 7,
+            "type": "property",
+            "name": "Make",
+            "value": "Civic"
+        },
+        {
+            "source": 7,
+            "type": "property",
+            "name": "Likes Food",
+            "value": true
+        },
+        {
+            "source": 8,
+            "type": "property",
+            "name": "Categories",
+            "value": "Hair"
+        },
+        {
+            "source": 8,
+            "type": "property",
+            "name": "Location",
+            "value": "Minneapolis"
+        },
+        {
+            "source": 8,
+            "type": "property",
+            "name": "School",
+            "value": "Northwestern University"
+        },
+        {
+            "source": 8,
+            "type": "property",
+            "name": "Hometown City",
+            "value": "Columbus"
+        },
+        {
+            "source": 8,
+            "type": "property",
+            "name": "Hometown State",
+            "value": "Ohio"
+        },
+        {
+            "source": 8,
+            "type": "property",
+            "name": "Family",
+            "value": "Engaged & 1 Sister & 1 Brother & Dog"
+        },
+        {
+            "source": 8,
+            "type": "property",
+            "name": "Hobby 1",
+            "value": "Travel"
+        },
+        {
+            "source": 8,
+            "type": "property",
+            "name": "Hobby 2",
+            "value": "Tennis"
+        },
+        {
+            "source":  8,
+            "type": "property",
+            "name": "Hobby 3",
+            "value": "San Francisco Sports"
+        },
+        {
+            "source":  8,
+            "type": "property",
+            "name": "Year",
+            "value": "1999"
+        },
+        {
+            "source":  8,
+            "type": "property",
+            "name": "Color",
+            "value": "Silver"
+        },
+        {
+            "source": 8,
+            "type": "property",
+            "name": "Model",
+            "value": "Honda"
+        },
+        {
+            "source": 8,
+            "type": "property",
+            "name": "Make",
+            "value": "CRV"
+        },
+        {
+            "source": 8,
+            "type": "property",
+            "name": "Likes Food",
+            "value": true
+        },
+        {
+            "source": 9,
+            "type": "property",
+            "name": "Categories",
+            "value": "Health and Beauty"
+        },
+        {
+            "source": 9,
+            "type": "property",
+            "name": "Location",
+            "value": "Los Angeles"
+        },
+        {
+            "source": 9,
+            "type": "property",
+            "name": "School",
+            "value": "California State University of Northridge"
+        },
+        {
+            "source": 9,
+            "type": "property",
+            "name": "Hometown City",
+            "value": "Porter Ranch"
+        },
+        {
+            "source": 9,
+            "type": "property",
+            "name": "Hometown State",
+            "value": "California"
+        },
+        {
+            "source": 9,
+            "type": "property",
+            "name": "Family",
+            "value": "Married & 1 Kid"
+        },
+        {
+            "source": 9,
+            "type": "property",
+            "name": "Hobby 1",
+            "value": "Travel"
+        },
+        {
+            "source": 9,
+            "type": "property",
+            "name": "Hobby 2",
+            "value": "Family & Friends"
+        },
+        {
+            "source":  9,
+            "type": "property",
+            "name": "Hobby 3",
+            "value": "Searching for online deals"
+        },
+        {
+            "source":  9,
+            "type": "property",
+            "name": "Year",
+            "value": "1986"
+        },
+        {
+            "source":  9,
+            "type": "property",
+            "name": "Color",
+            "value": "Navy"
+        },
+        {
+            "source": 9,
+            "type": "property",
+            "name": "Model",
+            "value": "Jeep"
+        },
+        {
+            "source": 9,
+            "type": "property",
+            "name": "Make",
+            "value": "Cherokee"
+        },
+        {
+            "source": 9,
+            "type": "property",
+            "name": "Likes Food",
+            "value": false
+        },
+        {
+            "source": 10,
+            "type": "property",
+            "name": "Categories",
+            "value": "Intern"
+        },
+        {
+            "source": 1,
+            "type": "property",
+            "name": "Location",
+            "value": "Boston"
+        },
+        {
+            "source": 1,
+            "type": "property",
+            "name": "School",
+            "value": "Duke University"
+        },
+        {
+            "source": 1,
+            "type": "property",
+            "name": "Hometown City",
+            "value": "Denver"
+        },
+        {
+            "source": 1,
+            "type": "property",
+            "name": "Hometown State",
+            "value": "Colorado"
+        },
+        {
+            "source": 1,
+            "type": "property",
+            "name": "Family",
+            "value": "1 Brother"
+        },
+        {
+            "source": 1,
+            "type": "property",
+            "name": "Hobby 1",
+            "value": "Travel"
+        },
+        {
+            "source": 1,
+            "type": "property",
+            "name": "Hobby 2",
+            "value": "Photography"
+        },
+        {
+            "source":  1,
+            "type": "property",
+            "name": "Hobby 3",
+            "value": "Tennis"
+        },
+        {
+            "source":  1,
+            "type": "property",
+            "name": "Year",
+            "value": "2011"
+        },
+        {
+            "source":  1,
+            "type": "property",
+            "name": "Color",
+            "value": "Navy"
+        },
+        {
+            "source": 1,
+            "type": "property",
+            "name": "Model",
+            "value": "Volkswagen"
+        },
+        {
+            "source": 1,
+            "type": "property",
+            "name": "Make",
+            "value": "Jetta"
+        },
+        {
+            "source": 1,
+            "type": "property",
+            "name": "Likes Food",
+            "value": true
+        },
+        {
+            "source": 11,
+            "type": "property",
+            "name": "Categories",
+            "value": "Fabric"
+        },
+        {
+            "source": 1,
+            "type": "property",
+            "name": "Location",
+            "value": "Seattle"
+        },
+        {
+            "source": 1,
+            "type": "property",
+            "name": "School",
+            "value": "Boston University"
+        },
+        {
+            "source": 1,
+            "type": "property",
+            "name": "Hometown City",
+            "value": "Alhambra"
+        },
+        {
+            "source": 1,
+            "type": "property",
+            "name": "Hometown State",
+            "value": "California"
+        },
+        {
+            "source": 1,
+            "type": "property",
+            "name": "Family",
+            "value": "1 Sister"
+        },
+        {
+            "source": 1,
+            "type": "property",
+            "name": "Hobby 1",
+            "value": "Music"
+        },
+        {
+            "source": 1,
+            "type": "property",
+            "name": "Hobby 2",
+            "value": "Art"
+        },
+        {
+            "source":  1,
+            "type": "property",
+            "name": "Hobby 3",
+            "value": "Yoga"
+        },
+        {
+            "source":  1,
+            "type": "property",
+            "name": "Year",
+            "value": "2006"
+        },
+        {
+            "source":  1,
+            "type": "property",
+            "name": "Color",
+            "value": "White"
+        },
+        {
+            "source": 1,
+            "type": "property",
+            "name": "Model",
+            "value": "Toyota"
+        },
+        {
+            "source": 1,
+            "type": "property",
+            "name": "Make",
+            "value": "Corolla"
+        },
+        {
+            "source": 1,
+            "type": "property",
+            "name": "Likes Food",
+            "value": true
         }
     ]
 }

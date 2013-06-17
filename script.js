@@ -1,6 +1,7 @@
-var width = 960,
-    height = 500,
+var width = document.width,
+    height = document.height,
     nodeRadius = 20,
+    subNodeRadius = nodeRadius / 2,
     k = Math.sqrt(12 / (width * height));
 
 var color = d3.scale.category20();
@@ -11,9 +12,24 @@ var force = d3.layout.force()
     .gravity(100 * k)
     .size([width, height]);
 
-var svg = d3.select("body").append("svg")
+var svg = d3.select("body").append("svg:svg")
     .attr("width", width)
-    .attr("height", height);
+    .attr("height", height)
+    .attr("pointer-events", "all")
+    .append('svg:g')
+      .call(d3.behavior.zoom().on("zoom", redraw))
+    .append('svg:g');
+
+svg.append('svg:rect')
+    .attr('width', width)
+    .attr('height', height)
+    .attr('fill', 'white');
+
+function redraw() {
+  console.log("here", d3.event.translate, d3.event.scale);
+  svg.attr("transform",
+      "translate(" + d3.event.translate + ")" + " scale(" + d3.event.scale + ")");
+}
 
 d3.json("categories.json", function(error, graph) {
   force.nodes(graph.nodes);
@@ -22,29 +38,45 @@ d3.json("categories.json", function(error, graph) {
   var links = [];
   var _nodes = graph.nodes.slice();  // copy
   _.each(graph.nodes, function(n, i) {
-    _nodes.shift();
-    var t = i,
-        matchKey,
-        matchValue;
-    for (var key in n) {
-      var val = n[key];
-      t = _.find(_nodes, function(_n) {
-        return _n[key] === val;
-      });
+    if (n.type === "person") {
+      _nodes.shift();
+      var t = i,
+          matchKey,
+          matchValue;
+      for (var key in n) {
+        if (key === 'type' || key === 'source') {
+          continue;
+        }
+        var val = n[key];
+        t = _.find(_nodes, function(_n) {
+          return _n[key] === val;
+        });
+        if (t) {
+          matchKey = key;
+          matchValue = val;
+          break;
+        }
+      }
+
       if (t) {
-        matchKey = key;
-        matchValue = val;
-        break;
+        var uniqT = _.clone(t);
+        delete uniqT[matchKey];
+        delete uniqT.name;
+        delete uniqT['Name'];
+
+        links.push(_.extend({
+          source: i,
+          target: (t && t.id) || i,
+          matchKey: matchKey,
+          matchValue: matchValue
+        }, {props: uniqT}));
       }
     }
-
-    if (t) {
-      links.push(_.extend({
+    else {
+      links.push(_.extend(n, {
         source: i,
-        target: (t && t.id) || i,
-        matchKey: matchKey,
-        matchValue: matchValue
-      }, {props: t}));
+        target: n.source
+      }));
     }
 
   });
@@ -55,42 +87,88 @@ d3.json("categories.json", function(error, graph) {
   var link = svg.selectAll(".link")
       .data(links)
     .enter().append("g")
-      .attr("class", "link");
+      .attr('class', function(d) {
+        if (d.props) {
+          return 'person link';
+        }
+        else return 'property link';
+      });
 
   var line = link.append('line')
-    .style("stroke-width", function(d) { return Math.sqrt(d.value); });
+      .style("stroke-width", 1);
 
-  var matchCirlce = link.append('circle')
-      .attr('r', nodeRadius / 2)
-      .style('fill', '#eee');
+  debugger
 
-  var text = link.append("text")
-      .attr('dy', '.35em')
-      .attr('text-anchor', 'middle')
-      .text(function(d) { return d.matchValue; });
+  var matchCirlce = svg.selectAll('.link.person')
+      .append('circle')
+        .attr('r', subNodeRadius)
+        .style('fill', '#eee');
+
+  var text = svg.selectAll('.link.person')
+      .append("text")
+        .attr('dy', '.35em')
+        .attr('text-anchor', 'middle')
+        .text(function(d) {
+          if (d.matchValue === true || d.matchValue === false) {
+            return d.matchKey;
+          }
+          else {
+            return d.matchKey+ ": " + d.matchValue;
+          }
+        });
 
   var node = svg.selectAll(".node")
       .data(graph.nodes)
     .enter()
       .append('g')
-      .attr("class", "node")
+      .attr("class", function(d) {
+        if (d.type && d.type === 'person') {
+          return 'node person'
+        }
+        else {
+          return 'node property';
+        }
+      })
       .call(force.drag);
 
   var circle = node.append("circle")
-      .attr("r", nodeRadius)
-      .style("fill", function(d) { return color(d.id); });
+      .attr("r", function(d) {
+        if (d.type && d.type === 'person') {
+          return nodeRadius;
+        }
+        else {
+          return subNodeRadius;
+        }
+      })
+      .style('fill', function(d) {
+        if (d.type && d.type === 'person') {
+          return color(d.id);
+        }
+        else {
+          return '#eee'
+        }
+      });
 
   node.append("text")
       .attr('dy', '.35em')
       .attr('text-anchor', 'middle')
-      .text(function(d) { return d.name; });
+      .text(function(d) {
+        if (d.type && d.type === 'person') {
+          return d.name;
+        }
+        else {
+          if (d.value === true || d.value === false) {
+            return d.name;
+          }
+          else return d.value;
+        }
+      });
 
   force.on("tick", function() {
 
     node.attr("transform", function(d) {
       return "translate(" + d.x + "," + d.y + ")";
     });
-
 
     line.attr("x1", function(d) { return d.source.x; })
         .attr("y1", function(d) { return d.source.y; })
