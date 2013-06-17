@@ -32,19 +32,37 @@ function redraw() {
 }
 
 d3.json("categories.json", function(error, graph) {
-  force.nodes(graph.nodes);
+  // Break out property nodes
+  var people = _.where(graph.nodes, {type: 'person'}),
+      nodes = people;
+
+  _.each(people, function(p) {
+    _.each(p, function(prop, _k) {
+      if (_k !== 'name' && _k !== 'Name' && _k !== 'id' && _k !== 'type') {
+        nodes.push({
+          target: p.id,
+          type: 'property',
+          name: _k,
+          value: prop
+        });
+      }
+    });
+  });
+
+  debugger
+  force.nodes(nodes);
 
   // Dynamically build links based on shared attributes
   var links = [];
-  var _nodes = graph.nodes.slice();  // copy
-  _.each(graph.nodes, function(n, i) {
+  var _nodes = nodes.slice();  // copy
+  _.each(nodes, function(n, i) {
     if (n.type === "person") {
       _nodes.shift();
       var t = i,
           matchKey,
           matchValue;
       for (var key in n) {
-        if (key === 'type' || key === 'source') {
+        if (key === 'type' || key === 'target') {
           continue;
         }
         var val = n[key];
@@ -74,8 +92,7 @@ d3.json("categories.json", function(error, graph) {
     }
     else {
       links.push(_.extend(n, {
-        source: i,
-        target: n.source
+        source: i
       }));
     }
 
@@ -97,8 +114,6 @@ d3.json("categories.json", function(error, graph) {
   var line = link.append('line')
       .style("stroke-width", 1);
 
-  debugger
-
   var matchCirlce = svg.selectAll('.link.person')
       .append('circle')
         .attr('r', subNodeRadius)
@@ -118,7 +133,7 @@ d3.json("categories.json", function(error, graph) {
         });
 
   var node = svg.selectAll(".node")
-      .data(graph.nodes)
+      .data(nodes)
     .enter()
       .append('g')
       .attr("class", function(d) {
