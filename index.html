@@ -2,11 +2,8 @@
 <html>
 <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
     <style>
-    body {
-        padding: 0;
-        margin: 0;
-    }
     text {
       font: 13px sans-serif;
       color: #444;
@@ -36,7 +33,14 @@
         position: fixed;
         right: 0;
         top: 0;
-        padding-left: 15px;
+        padding: 15px;
+        box-sizing: border-box;
+        overflow-y: scroll;
+    }
+
+    #people {
+        list-style-type: none;
+        margin-left: 0;
     }
 
     </style>
@@ -44,6 +48,12 @@
 <body>
     <div id='graph'></div>
     <div id='sidebar'>
+        <h3>APAN Members 2013</h3>
+
+        <p>Scroll and zoom on a bubble to find members that have something in common with you. It's random every time you refresh your browser so you can find new connections!</p>
+
+        <hr>
+
         <ul id='people'></ul>
     </div>
 

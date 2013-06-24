@@ -271,7 +271,7 @@ function graphData(dataNodes) {
 function createSidebar(data) {
     var $list = $('#people');
     _.each(data, function(n) {
-        $list.append("<li><a data-id='person-" + n.id + "'>" + n.name + "</a></li>");
+        $list.append("<li>" + n.name + "</li>");
     });
 
     $list.on('click', 'li a', function(e) {
