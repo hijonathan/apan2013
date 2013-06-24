@@ -22,7 +22,7 @@ var force = d3.layout.force()
         }
     })
     .charge(-30 / k)
-    .gravity(50 * k)
+    .gravity(80 * k)
     .size([width, height]);
 
 var svg = d3.select("#graph").append("svg:svg")
