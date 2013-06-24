@@ -231,7 +231,14 @@ function graphData(dataNodes) {
           if (d.value === true || d.value === false) {
             return d.name;
           }
-          else return d.value;
+          else {
+            if (_(d.value).isArray()) {
+                return d.value.join(', ');
+            }
+            else {
+                return d.value;
+            }
+          }
         }
       });
 
