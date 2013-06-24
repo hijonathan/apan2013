@@ -1,4 +1,10 @@
-var width = document.width,
+document.addEventListener('DOMContentLoaded', function() {
+    var gData,
+        URL = "0AsaxxHI5sR8FdFkxbmk4c2FibkZTWTlQTXlrRWJ4TlE";
+    Tabletop.init( { key: URL, callback: init, simpleSheet: true } );
+});
+
+var width = document.width - 300,
     height = document.height,
     nodeRadius = 20,
     subNodeRadius = nodeRadius / 2,
@@ -8,24 +14,29 @@ var color = d3.scale.category20();
 
 var force = d3.layout.force()
     .linkDistance(function(d) {
-      if (d.type && d.type === 'property') {
-        return 10;
-      }
-      else {
-        return 100;
-      }
+        if (d.type && d.type === 'property') {
+            return 10;
+        }
+        else {
+            return 100;
+        }
     })
-    .charge(-10 / k)
-    .gravity(100 * k)
-    .size([width, height])
+    .charge(-30 / k)
+    .gravity(50 * k)
+    .size([width, height]);
 
-var svg = d3.select("body").append("svg:svg")
+var svg = d3.select("#graph").append("svg:svg")
     .attr("width", width)
     .attr("height", height)
     .attr("pointer-events", "all")
     .append('svg:g')
-      .call(d3.behavior.zoom().on("zoom", redraw))
-    .append('svg:g');
+      .call(
+            d3.behavior.zoom()
+                .on("zoom", redraw)
+                .translate([100,50]).scale(0.2)
+      )
+    .append('svg:g')
+    .attr("transform","translate(100,50)scale(0.2,0.2)");
 
 svg.append('svg:rect')
     .attr('width', width)
@@ -38,11 +49,33 @@ function redraw() {
       "translate(" + d3.event.translate + ")" + " scale(" + d3.event.scale + ")");
 }
 
-d3.json("categories.json", function(error, graph) {
-  // Break out property nodes
-  var people = _.where(graph.nodes, {type: 'person'}),
-      nodes = people;
+function init(data) {
+    graphData(data);
+    createSidebar(data);
+}
 
+function graphData(dataNodes) {
+    _.each(dataNodes, function(n) {
+        n.hobbies = [];
+        var hobbieProps = ['hobby', 'hobby2', 'hobby3'];
+        for (i=0; i<hobbieProps.length; i++) {
+            var prop = hobbieProps[i];
+            n.hobbies.push(n[prop]);
+            delete n[prop];
+        }
+
+        n.id = n.rowNumber - 1;
+        delete n['rowNumber'];
+
+    });
+
+    var people = _.map(dataNodes, function(n) {
+        n.type = 'person';
+        return n;
+    });
+    var nodes = people;
+
+  // Break out property nodes
   _.each(people, function(p) {
     _.each(p, function(prop, _k) {
       if (_k !== 'name' && _k !== 'Name' && _k !== 'id' && _k !== 'type') {
@@ -64,20 +97,36 @@ d3.json("categories.json", function(error, graph) {
   _.each(nodes, function(n, i) {
     if (n.type === "person") {
       _nodes.shift();
-      var t = i,
+      var key,
+          _k,
+          t = i,
           matchKey,
-          matchValue;
-      for (var key in n) {
+          matchValue,
+          shuffledKeys = _.shuffle(_.keys(n));
+      for (_k=0; _k<shuffledKeys.length; _k++) {
+        key = shuffledKeys[_k];
         if (key === 'type' || key === 'target') {
           continue;
         }
         var val = n[key];
         t = _.find(_nodes, function(_n) {
-          return _n[key] === val;
+            var origProp = _n[key];
+            if (_(origProp).isArray()) {
+                return _.intersection(origProp, val).length;
+            }
+            else {
+                return val !== '' && val !== '-' && origProp === val;
+            }
         });
         if (t) {
           matchKey = key;
-          matchValue = val;
+
+          if (_(val).isArray()) {
+            matchValue = _.intersection(t[key], val)[0];
+          }
+          else {
+            matchValue = val;
+          }
           break;
         }
       }
@@ -105,7 +154,6 @@ d3.json("categories.json", function(error, graph) {
   });
 
   force.links(links);
-  force.start();
 
   var link = svg.selectAll(".link")
       .data(links)
@@ -134,7 +182,7 @@ d3.json("categories.json", function(error, graph) {
             return d.matchKey;
           }
           else {
-            return d.matchKey+ ": " + d.matchValue;
+            return Humanize.titlecase(d.matchKey) + ": " + d.matchValue;
           }
         });
 
@@ -142,15 +190,17 @@ d3.json("categories.json", function(error, graph) {
       .data(nodes)
     .enter()
       .append('g')
+      .attr('id', function(d) {
+        return d.type + '-' + d.id;
+      })
       .attr("class", function(d) {
         if (d.type && d.type === 'person') {
-          return 'node person'
+          return 'node person';
         }
         else {
           return 'node property';
         }
-      })
-      .call(force.drag);
+      });
 
   var circle = node.append("circle")
       .attr("r", function(d) {
@@ -166,7 +216,7 @@ d3.json("categories.json", function(error, graph) {
           return color(d.id);
         }
         else {
-          return '#eee'
+          return '#eee';
         }
       });
 
@@ -201,7 +251,27 @@ d3.json("categories.json", function(error, graph) {
 
   });
 
-});
+  force.start();
+
+    window.setTimeout(function() {
+        if (force.alpha() < 0.01) {
+            force.stop();
+        }
+    }, 2000);
+
+}
+
+function createSidebar(data) {
+    var $list = $('#people');
+    _.each(data, function(n) {
+        $list.append("<li><a data-id='person-" + n.id + "'>" + n.name + "</a></li>");
+    });
+
+    $list.on('click', 'li a', function(e) {
+        e.preventDefault();
+        zoomTo(d3.select('#' + $(e.currentTarget).data('id')));
+    });
+}
 
 function translateBetween(d) {
   var x1 = d.source.x;
@@ -209,4 +279,14 @@ function translateBetween(d) {
   var x2 = d.target.x;
   var y2 = d.target.y;
   return "translate(" + (x1 + x2) / 2 + "," + (y1 + y2) / 2 + ")";
+}
+
+function zoomTo(node) {
+    // var zoomFactor = 4;
+    // node.transition()
+    //     .attr("fill", "red");
+
+    // console.log(node, node.attr('transform'));
+    // svg.select('g').transition()
+    //     .attr("transform", "translate(" + node.attr('transform') + ")");
 }

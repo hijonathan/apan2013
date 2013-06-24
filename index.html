@@ -1,24 +1,57 @@
 <!DOCTYPE html>
-<meta charset="utf-8">
-<style>
+<html>
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        padding: 0;
+        margin: 0;
+    }
+    text {
+      font: 13px sans-serif;
+      color: #444;
+    }
 
-text {
-  font: 13px sans-serif;
-  color: #444;
-}
+    .node.person text {
+      font-weight: bold;
+      pointer-events: none;
+    }
 
-.node.person text {
-  font-weight: bold;
-  pointer-events: none;
-}
+    .link {
+      stroke: #999;
+      stroke-opacity: .6;
+    }
 
-.link {
-  stroke: #999;
-  stroke-opacity: .6;
-}
+    .link.person text {
+        font-weight: bold;
+    }
 
-</style>
+    #graph {
+        margin-right: 300px;
+    }
+
+    #sidebar {
+        width: 300px;
+        height: 100%;
+        position: fixed;
+        right: 0;
+        top: 0;
+        padding-left: 15px;
+    }
+
+    </style>
+</head>
 <body>
-<script src="http://d3js.org/d3.v3.min.js"></script>
-<script src="underscore.min.js"></script>
-<script src="script.js"></script>
+    <div id='graph'></div>
+    <div id='sidebar'>
+        <ul id='people'></ul>
+    </div>
+
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="underscore.min.js"></script>
+    <script src="tabletop.js"></script>
+    <script src="humanize.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
